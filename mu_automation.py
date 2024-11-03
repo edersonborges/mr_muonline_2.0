@@ -11,6 +11,7 @@ GAME_WINDOW_NAME = "CristalMU 97D"
 
 # Lista de comandos
 COMMANDS = [
+    "/zen 9999999999",
     "/mreset",
     "/f 32767",
     "/a 32767",
