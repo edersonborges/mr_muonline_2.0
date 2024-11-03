@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Diretórios virtuais do ambiente
+venv/
+env/
+ENV/
+.venv/
+.VENV/
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de log e banco de dados temporários
+*.log
+*.sqlite3
+
+# Arquivos do IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project

@@ -1,0 +1,72 @@
+# Automação de Comandos para CristalMU 97D
+
+Este projeto é uma automação em Python para enviar comandos repetitivos ao jogo CristalMU 97D. Ele inclui uma interface gráfica para iniciar e parar a automação, além de uma contagem regressiva visual que exibe o tempo restante até a próxima execução dos comandos.
+
+## Funcionalidades
+
+- **Automação de Comandos**: Executa comandos específicos no jogo CristalMU 97D.
+- **Interface Gráfica**: Fornece botões para iniciar e parar a automação.
+- **Contagem Regressiva**: Exibe o tempo restante até a próxima execução dos comandos.
+- **Foco na Janela**: Verifica e traz a janela do jogo para o primeiro plano antes de enviar os comandos.
+
+## Estrutura do Projeto
+
+- `mu_automation.py`: Contém as funções de automação para focar a janela e enviar comandos ao jogo.
+- `interface.py`: Interface gráfica que permite controlar a automação de forma interativa.
+- `README.md`: Explicação do projeto, instalação e instruções de uso.
+
+## Pré-requisitos
+
+Este projeto requer o Python 3.x e as seguintes bibliotecas Python:
+
+- `pyautogui`: Para enviar comandos e controlar o teclado.
+- `keyboard`: Para detectar pressionamentos de teclas.
+- `tkinter`: Biblioteca padrão para a interface gráfica.
+- `pywin32`: Para manipulação da janela no Windows.
+
+### Instalação das Dependências
+
+1. Certifique-se de que você está usando Python 3.
+2. Instale as bibliotecas necessárias:
+
+   ```bash
+   pip install pyautogui keyboard pywin32
+
+## Como Usar
+
+1. Abra o Jogo CristalMU 97D: Certifique-se de que o jogo esteja aberto e que a janela esteja ativa.
+
+2. Execute a Interface Gráfica:
+
+   ```bash
+   python interface.py
+   ```
+
+3. Controles na Interface:
+   - Iniciar Automação: Pressione o botão "Iniciar Automação" para iniciar a execução automática dos comandos. A automação tentará focar a janela do jogo e enviará os comandos repetidamente.
+   - Parar Automação: Pressione o botão "Parar Automação" para interromper o ciclo de execução.
+   - Contagem Regressiva: A contagem regressiva exibirá o tempo restante até a próxima execução.
+
+4. Configurações de Tempo:
+   - Contagem Regressiva Inicial: Configurada para 10 segundos antes de iniciar a primeira execução dos comandos.
+   - Intervalo entre Execuções: Configurado para 30 segundos. Você pode alterar esses tempos diretamente no código interface.py dentro da função countdown.
+
+## Configuração de Comandos
+
+Os comandos enviados ao jogo são definidos na lista COMMANDS no arquivo mu_automation.py. Se desejar alterar os comandos, edite esta lista.
+
+```python
+# mu_automation.py
+COMMANDS = [
+    "/mreset",
+    "/f 32767",
+    "/a 32767",
+    "/e 32767",
+    "/v 32767",
+    "/limparinv"
+]
+```
+
+## Observação
+
+Este script é projetado para o sistema operacional Windows e requer que o jogo esteja em execução e visível para que os comandos sejam corretamente enviados.
