@@ -1,72 +1,66 @@
-# Automação de Comandos para CristalMU 97D
 
-Este projeto é uma automação em Python para enviar comandos repetitivos ao jogo CristalMU 97D. Ele inclui uma interface gráfica para iniciar e parar a automação, além de uma contagem regressiva visual que exibe o tempo restante até a próxima execução dos comandos.
+# Projeto de Automação para MU Online
+
+Este projeto consiste em um script de automação para o jogo MU Online, permitindo verificar o nível do personagem e executar comandos automaticamente, como "Master Reset", ao atingir o nível necessário. Inclui uma interface gráfica em Python para configurar a automação de forma intuitiva.
 
 ## Funcionalidades
 
-- **Automação de Comandos**: Executa comandos específicos no jogo CristalMU 97D.
-- **Interface Gráfica**: Fornece botões para iniciar e parar a automação.
-- **Contagem Regressiva**: Exibe o tempo restante até a próxima execução dos comandos.
-- **Foco na Janela**: Verifica e traz a janela do jogo para o primeiro plano antes de enviar os comandos.
-
-## Estrutura do Projeto
-
-- `mu_automation.py`: Contém as funções de automação para focar a janela e enviar comandos ao jogo.
-- `interface.py`: Interface gráfica que permite controlar a automação de forma interativa.
-- `README.md`: Explicação do projeto, instalação e instruções de uso.
+- **Verificação do Nível**: Captura a tela do jogo para identificar o nível atual do personagem e comparar com o nível necessário para a automação.
+- **Execução de Comandos**: Ao atingir o nível necessário, executa comandos no jogo, incluindo "Master Reset". Opcionalmente, o comando `/limparinv` é executado para limpar o inventário se a configuração estiver habilitada.
+- **Configuração Personalizada via Interface Gráfica**:
+  - **Pasta de Screenshots**: Escolha o diretório onde as capturas de tela serão salvas.
+  - **Level Necessário**: Defina o nível que o personagem deve atingir para acionar a automação.
+  - **Nome da Janela do Jogo**: Especifique o título exato da janela do MU Online, permitindo a execução correta dos comandos na janela desejada.
+  - **Intervalo de Verificação**: Defina o intervalo (em segundos) entre cada verificação do nível.
+  - **Opção de Limpar Inventário**: Ative ou desative o comando `/limparinv` com uma caixa de seleção.
+  - **Contador de Master Resets**: Conta e exibe o número de vezes que o Master Reset foi executado, incluindo o nível verificado.
 
 ## Pré-requisitos
 
-Este projeto requer o Python 3.x e as seguintes bibliotecas Python:
+- **Python 3.x**
+- Bibliotecas necessárias: `tkinter`, `pytesseract`, `Pillow`, `numpy`, `opencv-python`, `pyautogui`, `mss`, `win32gui`, `win32api`, `win32con`.
+- **Tesseract OCR**: Instale o Tesseract OCR e configure o caminho corretamente no código para que a automação possa reconhecer o texto do nível.
 
-- `pyautogui`: Para enviar comandos e controlar o teclado.
-- `keyboard`: Para detectar pressionamentos de teclas.
-- `tkinter`: Biblioteca padrão para a interface gráfica.
-- `pywin32`: Para manipulação da janela no Windows.
+## Instalação
 
-### Instalação das Dependências
-
-1. Certifique-se de que você está usando Python 3.
-2. Instale as bibliotecas necessárias:
-
+1. Clone o repositório:
    ```bash
-   pip install pyautogui keyboard pywin32
+   git clone <URL_DO_REPOSITORIO>
+   cd <NOME_DA_PASTA_DO_PROJETO>
+   ```
 
-## Como Usar
+2. Instale as bibliotecas necessárias:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. Abra o Jogo CristalMU 97D: Certifique-se de que o jogo esteja aberto e que a janela esteja ativa.
+3. Instale o Tesseract OCR e configure o caminho no arquivo `interface.py`:
+   ```python
+   pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+   ```
 
-2. Execute a Interface Gráfica:
+## Utilização
 
+1. Execute o script `interface.py` para abrir a interface gráfica:
    ```bash
    python interface.py
    ```
 
-3. Controles na Interface:
-   - Iniciar Automação: Pressione o botão "Iniciar Automação" para iniciar a execução automática dos comandos. A automação tentará focar a janela do jogo e enviará os comandos repetidamente.
-   - Parar Automação: Pressione o botão "Parar Automação" para interromper o ciclo de execução.
-   - Contagem Regressiva: A contagem regressiva exibirá o tempo restante até a próxima execução.
+2. Configure os campos na interface:
+   - Selecione a pasta de screenshots.
+   - Defina o nível necessário, nome da janela do jogo e intervalo de verificação.
+   - Escolha a opção de limpar o inventário, se necessário.
+   - Clique em "Iniciar Automação".
 
-4. Configurações de Tempo:
-   - Contagem Regressiva Inicial: Configurada para 10 segundos antes de iniciar a primeira execução dos comandos.
-   - Intervalo entre Execuções: Configurado para 30 segundos. Você pode alterar esses tempos diretamente no código interface.py dentro da função countdown.
+3. A automação verificará o nível conforme o intervalo especificado e executará os comandos ao atingir o nível necessário.
 
-## Configuração de Comandos
+4. Para parar a automação, clique em "Parar Automação".
 
-Os comandos enviados ao jogo são definidos na lista COMMANDS no arquivo mu_automation.py. Se desejar alterar os comandos, edite esta lista.
+## Observações
 
-```python
-# mu_automation.py
-COMMANDS = [
-    "/mreset",
-    "/f 32767",
-    "/a 32767",
-    "/e 32767",
-    "/v 32767",
-    "/limparinv"
-]
-```
+- **Configurações Salvas**: As configurações da interface são salvas automaticamente e serão carregadas na próxima execução.
+- **Logo Personalizada**: Coloque uma imagem `logo.png` ou `logo.jpg` na pasta raiz do projeto para exibição opcional na interface.
 
-## Observação
+## Autor
 
-Este script é projetado para o sistema operacional Windows e requer que o jogo esteja em execução e visível para que os comandos sejam corretamente enviados.
+Desenvolvido por Ed
