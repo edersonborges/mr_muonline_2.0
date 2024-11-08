@@ -1,6 +1,6 @@
-PASTA=C:/Users/ed/Desktop/CristalMU-97D/Screenshots
+PASTA=C:\Users\ed\Desktop\CristalMU-97D\Screenshots
 LEVEL=350
 JANELA=CristalMU 97D
 TEMPO_VERIF=10
-MR_COUNT=11
+MR_COUNT=0
 NICK=Wanted
